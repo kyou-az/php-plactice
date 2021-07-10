@@ -55,8 +55,14 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
   </head>
   <body>
 <!--  ここでDBから取得した投稿情報の一個目の記事の投稿者名を表示してます。  -->
-    <?= $posts[0]->name ?>
+
     <form action="index.php" method="POST">
+        <?= $posts[0]->title ?>
+        <?= $posts[0]->detail ?>
+        <?= $posts[0]->name ?>
+
+
+
         <label for="name">
             氏名:
             <input id="name" type="text" name="name">
@@ -70,6 +76,23 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
             <input id="detail" type="text" name="detail">
         </label>
         <input type="submit" value="Submit">
+
+        <table border="1">
+            <tr>
+                <th>名前</th>
+                <th>タイトル</th>
+                <th>本文</th>
+            </tr>
+            <tr>
+                <td><?= $posts[0]->name ?></td>
+                <td><?= $posts[0]->title ?></td>
+                <td><?= $posts[0]->detail ?></td>
+
+            </tr>
+
+
+
+        </table>
     </form>
   </body>
 </html>
